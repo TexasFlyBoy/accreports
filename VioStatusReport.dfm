@@ -300,12 +300,12 @@ object Form1: TForm1
               Transparent = False
             end
             object RLLabel6: TRLLabel
-              Left = 850
+              Left = 843
               Top = 6
-              Width = 37
+              Width = 44
               Height = 14
               Alignment = taRightJustify
-              Caption = 'ACC #:'
+              Caption = 'ACDR #:'
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlack
               Font.Height = -11
@@ -827,7 +827,6 @@ object Form1: TForm1
     Top = 408
   end
   object ADOQuery1: TADOQuery
-    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     Parameters = <>
@@ -835,7 +834,10 @@ object Form1: TForm1
       'SELECT *, (FORMAT(houseAcct, "000000")) as AccAcct '
       'FROM ViolationStatusReport'
       'WHERE houseacct in (120, 240, 999998, 999999)'
-      'OR driveRoute IN (1, 2.5, 3)')
+      'OR driveRoute IN (3)'
+      
+        'ORDER by DriveRoute, StreetOrder, StreetNumber, violationNumber,' +
+        ' statusDate ASC')
     Left = 710
     Top = 472
   end
