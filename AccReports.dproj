@@ -105,6 +105,18 @@
             <Form>VioUpdateReport</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="VioOpenLettersRpt.pas">
+            <Form>VioOpenLettersRpt</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit2.pas">
+            <Form>Form2</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Splash.pas">
+            <Form>frmSplashScreen</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

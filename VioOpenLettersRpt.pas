@@ -1,4 +1,4 @@
-unit VioUpdateReport;
+unit VioOpenLettersRpt;
 
 interface
 
@@ -7,34 +7,8 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RLReport, Data.DB, Data.Win.ADODB;
 
 type
-  TVioUpdateReport = class(TForm)
+  TVioOpenLettersRpt = class(TForm)
     RLReport1: TRLReport;
-    RLBand1: TRLBand;
-    RLDBText11: TRLDBText;
-    groupDriveRoute: TRLGroup;
-    HeaderBandGroupDriveRoute: TRLBand;
-    RLLabel2: TRLLabel;
-    RLDBText1: TRLDBText;
-    RLDBText3: TRLDBText;
-    groupStreetName: TRLGroup;
-    headerBandGroupStreet: TRLBand;
-    RLDBText2: TRLDBText;
-    groupAddress: TRLGroup;
-    headerBandGroupAddress: TRLBand;
-    RLDBText4: TRLDBText;
-    RLDBText5: TRLDBText;
-    RLDBText7: TRLDBText;
-    RLDBText8: TRLDBText;
-    RLDBText9: TRLDBText;
-    RLDBText10: TRLDBText;
-    RLDraw1: TRLDraw;
-    RLLabel6: TRLLabel;
-    RLLabel7: TRLLabel;
-    RLLabel8: TRLLabel;
-    RLLabel9: TRLLabel;
-    RLLabel10: TRLLabel;
-    RLDBMemo5: TRLDBMemo;
-    groupViolationNumber: TRLGroup;
     DataSource1: TDataSource;
     ADOTable1: TADOTable;
     ADOTable1violationIdText: TWideMemoField;
@@ -67,30 +41,16 @@ type
     ADOTable1statusBy: TWideStringField;
     ADOConnection1: TADOConnection;
     ADOQuery1: TADOQuery;
+    RLBand1: TRLBand;
+    RLDBText1: TRLDBText;
+    RLGroup1: TRLGroup;
     RLBand2: TRLBand;
-    RLDBMemo2: TRLDBMemo;
-    RLLabel1: TRLLabel;
-    RLLabel11: TRLLabel;
-    RLDBText15: TRLDBText;
-    RLLabel12: TRLLabel;
-    RLDBText16: TRLDBText;
-    RLDBText17: TRLDBText;
-    RLDraw2: TRLDraw;
-    detailBandVioStatus: TRLBand;
-    RLDBMemo3: TRLDBMemo;
-    RLDBMemo4: TRLDBMemo;
-    RLDBMemo6: TRLDBMemo;
-    RLDraw4: TRLDraw;
+    RLDBText2: TRLDBText;
     RLBand3: TRLBand;
-    RLMemo1: TRLMemo;
-    RLBand7: TRLBand;
-    RLSystemInfo1: TRLSystemInfo;
-    RLSystemInfo2: TRLSystemInfo;
-    RLSystemInfo3: TRLSystemInfo;
-    RLSystemInfo4: TRLSystemInfo;
-    RLLabel3: TRLLabel;
-    RLLabel4: TRLLabel;
-    RLDraw3: TRLDraw;
+    RLDBText3: TRLDBText;
+    RLDBText4: TRLDBText;
+    RLDBMemo1: TRLDBMemo;
+    RLDBText5: TRLDBText;
   private
     { Private declarations }
   public

@@ -48,11 +48,14 @@ type
     HelpAboutItem: TMenuItem;
     RLRichFilter1: TRLRichFilter;
     RLPreviewSetup1: TRLPreviewSetup;
-    btnLoadVioSql: TButton;
-    memoSqlText: TMemo;
-    btnRunSqlQuery: TButton;
-    rgSqlQueries: TRadioGroup;
     RLPDFFilter1: TRLPDFFilter;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    memoSqlText: TMemo;
+    rgSqlQueries: TRadioGroup;
+    btnLoadVioSql: TButton;
+    btnRunSqlQuery: TButton;
     procedure FileNew1Execute(Sender: TObject);
     procedure FileOpen1Execute(Sender: TObject);
     procedure FileSave1Execute(Sender: TObject);

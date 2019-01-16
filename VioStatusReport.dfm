@@ -209,9 +209,9 @@ object Form1: TForm1
             object RLDBText6: TRLDBText
               Left = 885
               Top = 6
-              Width = 56
+              Width = 46
               Height = 14
-              DataField = 'houseAcct'
+              DataField = 'AccAcct'
               DataSource = DataSource1
               DisplayMask = #39'dddddd'#39
               Font.Charset = DEFAULT_CHARSET
@@ -300,12 +300,12 @@ object Form1: TForm1
               Transparent = False
             end
             object RLLabel6: TRLLabel
-              Left = 840
+              Left = 850
               Top = 6
-              Width = 47
+              Width = 37
               Height = 14
               Alignment = taRightJustify
-              Caption = 'Account:'
+              Caption = 'ACC #:'
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlack
               Font.Height = -11
@@ -694,6 +694,7 @@ object Form1: TForm1
     Top = 472
   end
   object ADOTable1: TADOTable
+    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'ViolationStatusReport'
@@ -809,7 +810,7 @@ object Form1: TForm1
     Connected = True
     ConnectionString = 
       'Provider=Microsoft.ACE.OLEDB.12.0;User ID=Admin;Data Source=C:\U' +
-      'sers\Mandy.SSCA-FRONTOFFIC\Documents\SSCA_ACDR_Rev181214.accdb;M' +
+      'sers\Mandy.SSCA-FRONTOFFIC\Documents\SSCA_ACDR_Rev181221.accdb;M' +
       'ode=Share Deny None;Jet OLEDB:System database="";Jet OLEDB:Regis' +
       'try Path="";Jet OLEDB:Database Password="";Jet OLEDB:Engine Type' +
       '=6;Jet OLEDB:Database Locking Mode=1;Jet OLEDB:Global Partial Bu' +
@@ -831,7 +832,8 @@ object Form1: TForm1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'SELECT * FROM ViolationStatusReport'
+      'SELECT *, (FORMAT(houseAcct, "000000")) as AccAcct '
+      'FROM ViolationStatusReport'
       'WHERE houseacct in (120, 240, 999998, 999999)'
       'OR driveRoute IN (1, 2.5, 3)')
     Left = 710

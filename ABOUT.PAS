@@ -3,17 +3,17 @@ unit ABOUT;
 interface
 
 uses Winapi.Windows, System.Classes, Vcl.Graphics, Vcl.Forms, Vcl.Controls,
-  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, Vcl.Imaging.jpeg;
 
 type
   TAboutBox = class(TForm)
-    Panel1: TPanel;
-    OKButton: TButton;
     ProgramIcon: TImage;
-    ProductName: TLabel;
-    Version: TLabel;
-    Copyright: TLabel;
-    Comments: TLabel;
+    Label1: TLabel;
+    Label4: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    procedure ProgramIconClick(Sender: TObject);
+    procedure FormClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,5 +27,15 @@ implementation
 
 {$R *.dfm}
 
+procedure TAboutBox.FormClick(Sender: TObject);
+begin
+  Exit;
+end;
+
+procedure TAboutBox.ProgramIconClick(Sender: TObject);
+begin
+  Exit;
+end;
+
 end.
- 
+

@@ -5,7 +5,10 @@ uses
   SDIMAIN in 'SDIMAIN.PAS' {SDIAppForm},
   ABOUT in 'ABOUT.PAS' {AboutBox},
   VioStatusReport in 'VioStatusReport.pas' {Form1},
-  VioUpdateReport in 'VioUpdateReport.pas' {VioUpdateReport};
+  VioUpdateReport in 'VioUpdateReport.pas' {VioUpdateReport},
+  VioOpenLettersRpt in 'VioOpenLettersRpt.pas' {VioOpenLettersRpt},
+  Unit2 in 'Unit2.pas' {Form2},
+  Splash in 'Splash.pas' {frmSplashScreen};
 
 {$R *.RES}
 
@@ -14,7 +17,10 @@ begin
   Application.CreateForm(TSDIAppForm, SDIAppForm);
   Application.CreateForm(TAboutBox, AboutBox);
   Application.CreateForm(TForm1, Form1);
-  Application.CreateForm(TVioUpdateReport, VioUpdateReport);
+//  Application.CreateForm(TVioUpdateReport, VioUpdateReport);
+//  Application.CreateForm(TVioOpenLettersRpt, VioOpenLettersRpt);
+  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TfrmSplashScreen, frmSplashScreen);
   Application.Run;
 end.
  

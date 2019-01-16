@@ -2,8 +2,8 @@ object SDIAppForm: TSDIAppForm
   Left = 197
   Top = 111
   Caption = 'SDI Application'
-  ClientHeight = 830
-  ClientWidth = 1202
+  ClientHeight = 591
+  ClientWidth = 1084
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,8 +16,8 @@ object SDIAppForm: TSDIAppForm
   TextHeight = 16
   object StatusBar: TStatusBar
     Left = 0
-    Top = 811
-    Width = 1202
+    Top = 572
+    Width = 1084
     Height = 19
     Margins.Left = 2
     Margins.Top = 2
@@ -26,11 +26,13 @@ object SDIAppForm: TSDIAppForm
     AutoHint = True
     Panels = <>
     SimplePanel = True
+    ExplicitTop = 811
+    ExplicitWidth = 1202
   end
   object ToolBar1: TToolBar
     Left = 0
     Top = 0
-    Width = 1202
+    Width = 1084
     Height = 30
     BorderWidth = 1
     Color = clBtnFace
@@ -41,6 +43,7 @@ object SDIAppForm: TSDIAppForm
     ShowHint = True
     TabOrder = 1
     Wrapable = False
+    ExplicitWidth = 1202
     object ToolButton9: TToolButton
       Left = 5
       Top = 0
@@ -80,45 +83,72 @@ object SDIAppForm: TSDIAppForm
       Action = EditPaste1
     end
   end
-  object btnLoadVioSql: TButton
-    Left = 733
-    Top = 58
-    Width = 205
-    Height = 25
-    Caption = 'Load Violation Report SQL'
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 30
+    Width = 1084
+    Height = 542
+    ActivePage = TabSheet1
+    Align = alClient
     TabOrder = 2
-    OnClick = btnLoadVioSqlClick
-  end
-  object memoSqlText: TMemo
-    Left = 8
-    Top = 88
-    Width = 561
-    Height = 249
-    TabOrder = 3
-  end
-  object btnRunSqlQuery: TButton
-    Left = 216
-    Top = 370
-    Width = 121
-    Height = 25
-    Caption = 'Run SQL Query'
-    TabOrder = 4
-    OnClick = btnRunSqlQueryClick
-  end
-  object rgSqlQueries: TRadioGroup
-    Left = 584
-    Top = 120
-    Width = 161
-    Height = 177
-    Caption = ' SQL Queries '
-    ItemIndex = 0
-    Items.Strings = (
-      'Violation Report'
-      'Houses in Legal'
-      'Houses on 209'
-      'Houses on 4OL'
-      'Houses on 3OL')
-    TabOrder = 5
+    TabPosition = tpBottom
+    ExplicitLeft = 360
+    ExplicitTop = 208
+    ExplicitWidth = 657
+    ExplicitHeight = 345
+    object TabSheet1: TTabSheet
+      Caption = 'TabSheet1'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 613
+      ExplicitHeight = 192
+      object memoSqlText: TMemo
+        Left = 3
+        Top = 75
+        Width = 598
+        Height = 286
+        TabOrder = 0
+      end
+      object rgSqlQueries: TRadioGroup
+        Left = 632
+        Top = 147
+        Width = 161
+        Height = 182
+        Caption = ' SQL Queries '
+        ItemIndex = 0
+        Items.Strings = (
+          'Violation Report'
+          'Houses in Legal'
+          'Houses on 209'
+          'Houses on 4OL'
+          'Houses on 3OL')
+        TabOrder = 1
+      end
+      object btnLoadVioSql: TButton
+        Left = 632
+        Top = 90
+        Width = 205
+        Height = 25
+        Caption = 'Load Violation Report SQL'
+        TabOrder = 2
+        OnClick = btnLoadVioSqlClick
+      end
+      object btnRunSqlQuery: TButton
+        Left = 200
+        Top = 395
+        Width = 121
+        Height = 25
+        Caption = 'Run SQL Query'
+        TabOrder = 3
+        OnClick = btnRunSqlQueryClick
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'TabSheet2'
+      ImageIndex = 1
+      ExplicitWidth = 609
+      ExplicitHeight = 188
+    end
   end
   object MainMenu1: TMainMenu
     Images = ImageList1
@@ -241,7 +271,7 @@ object SDIAppForm: TSDIAppForm
     Left = 336
     Top = 40
     Bitmap = {
-      494C01010F0013001C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010F001300200010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

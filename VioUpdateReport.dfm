@@ -708,6 +708,7 @@ object VioUpdateReport: TVioUpdateReport
     Top = 771
   end
   object ADOTable1: TADOTable
+    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'ViolationStatusReport'
@@ -823,7 +824,7 @@ object VioUpdateReport: TVioUpdateReport
     Connected = True
     ConnectionString = 
       'Provider=Microsoft.ACE.OLEDB.12.0;User ID=Admin;Data Source=C:\U' +
-      'sers\Mandy.SSCA-FRONTOFFIC\Documents\SSCA_ACDR_Rev181214.accdb;M' +
+      'sers\Mandy.SSCA-FRONTOFFIC\Documents\SSCA_ACDR_Rev181221.accdb;M' +
       'ode=Share Deny None;Jet OLEDB:System database="";Jet OLEDB:Regis' +
       'try Path="";Jet OLEDB:Database Password="";Jet OLEDB:Engine Type' +
       '=6;Jet OLEDB:Database Locking Mode=1;Jet OLEDB:Global Partial Bu' +
@@ -836,8 +837,8 @@ object VioUpdateReport: TVioUpdateReport
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.ACE.OLEDB.12.0'
-    Left = 712
-    Top = 707
+    Left = 704
+    Top = 675
   end
   object ADOQuery1: TADOQuery
     Active = True
