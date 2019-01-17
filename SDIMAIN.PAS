@@ -56,6 +56,19 @@ type
     rgSqlQueries: TRadioGroup;
     btnLoadVioSql: TButton;
     btnRunSqlQuery: TButton;
+    pnlDriveReports: TPanel;
+    mDriveReports: TMemo;
+    Button1: TButton;
+    gbRoutes: TGroupBox;
+    lblSelectRoutes: TLabel;
+    cbAllRoutes: TCheckBox;
+    eSelectRoutes: TEdit;
+    rgAndOr: TRadioGroup;
+    gbAcdrNumbers: TGroupBox;
+    lblSelectAcdrNumbers: TLabel;
+    cbAllAcdrNumbers: TCheckBox;
+    eSelectAcdrNumbers: TEdit;
+    rgReportType: TRadioGroup;
     procedure FileNew1Execute(Sender: TObject);
     procedure FileOpen1Execute(Sender: TObject);
     procedure FileSave1Execute(Sender: TObject);
@@ -63,6 +76,11 @@ type
     procedure HelpAbout1Execute(Sender: TObject);
     procedure btnLoadVioSqlClick(Sender: TObject);
     procedure btnRunSqlQueryClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure cbAllRoutesClick(Sender: TObject);
+    procedure cbAllAcdrNumbersClick(Sender: TObject);
+    procedure eSelectRoutesClick(Sender: TObject);
+    procedure eSelectAcdrNumbersClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -128,6 +146,40 @@ begin
   end;
   VioStatusReport.Form1.ADOQuery1.Active := True;
   VioStatusReport.Form1.RLReport1.Preview();
+end;
+
+procedure TSDIAppForm.Button1Click(Sender: TObject);
+var
+  sqlText: TStrings;
+begin
+  sqlText.Create;
+  sqlText.Add('SELECT * FROM DriveReports ');
+//  if (cbAllRoutes) then
+
+  mDriveReports.Lines.Clear;
+  mDriveReports.Lines.AddStrings(sqlText.Strings);
+end;
+
+
+
+procedure TSDIAppForm.cbAllAcdrNumbersClick(Sender: TObject);
+begin
+  eSelectAcdrNumbers.Text := '';
+end;
+
+procedure TSDIAppForm.cbAllRoutesClick(Sender: TObject);
+begin
+  eSelectRoutes.Text := '';
+end;
+
+procedure TSDIAppForm.eSelectRoutesClick(Sender: TObject);
+begin
+  cbAllRoutes.Checked := False;
+end;
+
+procedure TSDIAppForm.eSelectAcdrNumbersClick(Sender: TObject);
+begin
+  cbAllAcdrNumbers.Checked := False;
 end;
 
 procedure TSDIAppForm.FileExit1Execute(Sender: TObject);

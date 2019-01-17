@@ -26,8 +26,6 @@ object SDIAppForm: TSDIAppForm
     AutoHint = True
     Panels = <>
     SimplePanel = True
-    ExplicitTop = 811
-    ExplicitWidth = 1202
   end
   object ToolBar1: TToolBar
     Left = 0
@@ -43,7 +41,6 @@ object SDIAppForm: TSDIAppForm
     ShowHint = True
     TabOrder = 1
     Wrapable = False
-    ExplicitWidth = 1202
     object ToolButton9: TToolButton
       Left = 5
       Top = 0
@@ -88,20 +85,12 @@ object SDIAppForm: TSDIAppForm
     Top = 30
     Width = 1084
     Height = 542
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Align = alClient
     TabOrder = 2
     TabPosition = tpBottom
-    ExplicitLeft = 360
-    ExplicitTop = 208
-    ExplicitWidth = 657
-    ExplicitHeight = 345
     object TabSheet1: TTabSheet
       Caption = 'TabSheet1'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 613
-      ExplicitHeight = 192
       object memoSqlText: TMemo
         Left = 3
         Top = 75
@@ -146,8 +135,142 @@ object SDIAppForm: TSDIAppForm
     object TabSheet2: TTabSheet
       Caption = 'TabSheet2'
       ImageIndex = 1
-      ExplicitWidth = 609
-      ExplicitHeight = 188
+      ExplicitLeft = 0
+      ExplicitTop = 6
+      object pnlDriveReports: TPanel
+        Left = 0
+        Top = 0
+        Width = 1076
+        Height = 513
+        Align = alClient
+        Color = 6205183
+        ParentBackground = False
+        TabOrder = 0
+        ExplicitTop = 2
+        object mDriveReports: TMemo
+          Left = 540
+          Top = 296
+          Width = 329
+          Height = 153
+          Lines.Strings = (
+            'mDriveReports')
+          TabOrder = 0
+        end
+        object Button1: TButton
+          Left = 344
+          Top = 296
+          Width = 129
+          Height = 25
+          Caption = 'View Report'
+          TabOrder = 1
+          OnClick = Button1Click
+        end
+        object gbRoutes: TGroupBox
+          Left = 34
+          Top = 136
+          Width = 263
+          Height = 89
+          Caption = ' Drive Routes '
+          Color = 13034239
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 2
+          object lblSelectRoutes: TLabel
+            Left = 16
+            Top = 47
+            Width = 84
+            Height = 16
+            Caption = 'Only Routes:'
+          end
+          object cbAllRoutes: TCheckBox
+            Left = 16
+            Top = 24
+            Width = 47
+            Height = 17
+            Alignment = taLeftJustify
+            Caption = 'All:'
+            TabOrder = 0
+            OnClick = cbAllRoutesClick
+          end
+          object eSelectRoutes: TEdit
+            Left = 106
+            Top = 44
+            Width = 135
+            Height = 24
+            TabOrder = 1
+            Text = '1, 2'
+            OnClick = eSelectRoutesClick
+          end
+        end
+        object rgAndOr: TRadioGroup
+          Left = 321
+          Top = 136
+          Width = 80
+          Height = 89
+          Caption = ' And/Or '
+          Color = 13034239
+          ItemIndex = 0
+          Items.Strings = (
+            'AND'
+            'OR')
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 3
+        end
+        object gbAcdrNumbers: TGroupBox
+          Left = 434
+          Top = 136
+          Width = 447
+          Height = 89
+          Caption = ' ACDR Numbers'
+          Color = 13034239
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 4
+          object lblSelectAcdrNumbers: TLabel
+            Left = 16
+            Top = 47
+            Width = 87
+            Height = 16
+            Caption = 'Only ACDR #:'
+          end
+          object cbAllAcdrNumbers: TCheckBox
+            Left = 16
+            Top = 24
+            Width = 47
+            Height = 17
+            Alignment = taLeftJustify
+            Caption = 'All:'
+            TabOrder = 0
+            OnClick = cbAllAcdrNumbersClick
+          end
+          object eSelectAcdrNumbers: TEdit
+            Left = 106
+            Top = 44
+            Width = 319
+            Height = 24
+            TabOrder = 1
+            Text = '120, 2500'
+            OnClick = eSelectAcdrNumbersClick
+          end
+        end
+        object rgReportType: TRadioGroup
+          Left = 34
+          Top = 33
+          Width = 434
+          Height = 56
+          Caption = ' Drive Reports '
+          Color = 13034239
+          Columns = 2
+          ItemIndex = 1
+          Items.Strings = (
+            'Status Report'
+            'Status Report Update')
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 5
+        end
+      end
     end
   end
   object MainMenu1: TMainMenu
@@ -271,7 +394,7 @@ object SDIAppForm: TSDIAppForm
     Left = 336
     Top = 40
     Bitmap = {
-      494C01010F001300200010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010F001300240010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
