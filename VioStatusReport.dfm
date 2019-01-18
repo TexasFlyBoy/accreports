@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 680
-  ClientWidth = 1151
+  ClientHeight = 841
+  ClientWidth = 1087
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -56,7 +56,7 @@ object Form1: TForm1
       Left = 38
       Top = 81
       Width = 980
-      Height = 145
+      Height = 120
       AllowedBands = [btHeader, btTitle, btDetail]
       Color = clWhite
       DataFields = 'driveRoute'
@@ -168,7 +168,7 @@ object Form1: TForm1
             Left = 0
             Top = 0
             Width = 980
-            Height = 43
+            Height = 25
             AutoExpand = False
             AutoSize = True
             BandType = btHeader
@@ -209,75 +209,11 @@ object Form1: TForm1
             object RLDBText6: TRLDBText
               Left = 885
               Top = 6
-              Width = 46
+              Width = 84
               Height = 14
-              DataField = 'AccAcct'
+              DataField = 'longAccAccount'
               DataSource = DataSource1
               DisplayMask = #39'dddddd'#39
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Text = ''
-              Transparent = False
-            end
-            object RLDBText7: TRLDBText
-              Left = 119
-              Top = 29
-              Width = 33
-              Height = 14
-              DataField = 'Phone'
-              DataSource = DataSource1
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Text = ''
-              Transparent = False
-            end
-            object RLDBText8: TRLDBText
-              Left = 314
-              Top = 29
-              Width = 46
-              Height = 14
-              DataField = 'AltPhone'
-              DataSource = DataSource1
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Text = ''
-              Transparent = False
-            end
-            object RLDBText9: TRLDBText
-              Left = 482
-              Top = 29
-              Width = 69
-              Height = 14
-              DataField = 'mobilePhone1'
-              DataSource = DataSource1
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Text = ''
-              Transparent = False
-            end
-            object RLDBText10: TRLDBText
-              Left = 754
-              Top = 29
-              Width = 69
-              Height = 14
-              DataField = 'mobilePhone2'
-              DataSource = DataSource1
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlack
               Font.Height = -11
@@ -314,66 +250,6 @@ object Form1: TForm1
               ParentFont = False
               Transparent = False
             end
-            object RLLabel7: TRLLabel
-              Left = 70
-              Top = 29
-              Width = 51
-              Height = 14
-              Alignment = taRightJustify
-              Caption = 'Phone #1:'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Transparent = False
-            end
-            object RLLabel8: TRLLabel
-              Left = 264
-              Top = 29
-              Width = 51
-              Height = 14
-              Alignment = taRightJustify
-              Caption = 'Phone #2:'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Transparent = False
-            end
-            object RLLabel9: TRLLabel
-              Left = 439
-              Top = 29
-              Width = 51
-              Height = 14
-              Alignment = taRightJustify
-              Caption = 'Mobile #1:'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Transparent = False
-            end
-            object RLLabel10: TRLLabel
-              Left = 704
-              Top = 29
-              Width = 51
-              Height = 14
-              Alignment = taRightJustify
-              Caption = 'Mobile #2:'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Transparent = False
-            end
             object RLDBMemo5: TRLDBMemo
               Left = 636
               Top = 1
@@ -393,7 +269,7 @@ object Form1: TForm1
           end
           object groupViolationNumber: TRLGroup
             Left = 0
-            Top = 43
+            Top = 25
             Width = 980
             Height = 65
             Color = clWhite
@@ -618,13 +494,13 @@ object Form1: TForm1
     end
     object RLBand6: TRLBand
       Left = 38
-      Top = 226
+      Top = 201
       Width = 980
       Height = 1
     end
     object RLBand7: TRLBand
       Left = 38
-      Top = 227
+      Top = 202
       Width = 980
       Height = 39
       BandType = btFooter
@@ -694,7 +570,6 @@ object Form1: TForm1
     Top = 472
   end
   object ADOTable1: TADOTable
-    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'ViolationStatusReport'
@@ -810,16 +685,15 @@ object Form1: TForm1
     Connected = True
     ConnectionString = 
       'Provider=Microsoft.ACE.OLEDB.12.0;User ID=Admin;Data Source=C:\U' +
-      'sers\Mandy.SSCA-FRONTOFFIC\Documents\SSCA_ACDR_Rev181221.accdb;M' +
-      'ode=Share Deny None;Jet OLEDB:System database="";Jet OLEDB:Regis' +
-      'try Path="";Jet OLEDB:Database Password="";Jet OLEDB:Engine Type' +
-      '=6;Jet OLEDB:Database Locking Mode=1;Jet OLEDB:Global Partial Bu' +
-      'lk Ops=2;Jet OLEDB:Global Bulk Transactions=1;Jet OLEDB:New Data' +
-      'base Password="";Jet OLEDB:Create System Database=False;Jet OLED' +
-      'B:Encrypt Database=False;Jet OLEDB:Don'#39't Copy Locale on Compact=' +
-      'False;Jet OLEDB:Compact Without Replica Repair=False;Jet OLEDB:S' +
-      'FP=False;Jet OLEDB:Support Complex Data=False;Jet OLEDB:Bypass U' +
-      'serInfo Validation=False;'
+      'sers\Admin\Documents\accSandbox.accdb;Mode=Share Deny None;Jet O' +
+      'LEDB:System database="";Jet OLEDB:Registry Path="";Jet OLEDB:Dat' +
+      'abase Password="";Jet OLEDB:Engine Type=6;Jet OLEDB:Database Loc' +
+      'king Mode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLEDB:Global' +
+      ' Bulk Transactions=1;Jet OLEDB:New Database Password="";Jet OLED' +
+      'B:Create System Database=False;Jet OLEDB:Encrypt Database=False;' +
+      'Jet OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:Compact W' +
+      'ithout Replica Repair=False;Jet OLEDB:SFP=False;Jet OLEDB:Suppor' +
+      't Complex Data=False;Jet OLEDB:Bypass UserInfo Validation=False;'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.ACE.OLEDB.12.0'
@@ -827,6 +701,7 @@ object Form1: TForm1
     Top = 408
   end
   object ADOQuery1: TADOQuery
+    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     Parameters = <>

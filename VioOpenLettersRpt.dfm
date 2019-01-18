@@ -113,15 +113,15 @@ object VioOpenLettersRpt: TVioOpenLettersRpt
   end
   object DataSource1: TDataSource
     DataSet = ADOQuery1
-    Left = 808
-    Top = 771
+    Left = 488
+    Top = 283
   end
   object ADOTable1: TADOTable
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'ViolationStatusReport'
-    Left = 800
-    Top = 699
+    Left = 504
+    Top = 211
     object ADOTable1violationIdText: TWideMemoField
       FieldName = 'violationIdText'
       ReadOnly = True
@@ -232,21 +232,20 @@ object VioOpenLettersRpt: TVioOpenLettersRpt
     Connected = True
     ConnectionString = 
       'Provider=Microsoft.ACE.OLEDB.12.0;User ID=Admin;Data Source=C:\U' +
-      'sers\Mandy.SSCA-FRONTOFFIC\Documents\SSCA_ACDR_Rev181214.accdb;M' +
-      'ode=Share Deny None;Jet OLEDB:System database="";Jet OLEDB:Regis' +
-      'try Path="";Jet OLEDB:Database Password="";Jet OLEDB:Engine Type' +
-      '=6;Jet OLEDB:Database Locking Mode=1;Jet OLEDB:Global Partial Bu' +
-      'lk Ops=2;Jet OLEDB:Global Bulk Transactions=1;Jet OLEDB:New Data' +
-      'base Password="";Jet OLEDB:Create System Database=False;Jet OLED' +
-      'B:Encrypt Database=False;Jet OLEDB:Don'#39't Copy Locale on Compact=' +
-      'False;Jet OLEDB:Compact Without Replica Repair=False;Jet OLEDB:S' +
-      'FP=False;Jet OLEDB:Support Complex Data=False;Jet OLEDB:Bypass U' +
-      'serInfo Validation=False;'
+      'sers\Admin\Documents\accSandbox.accdb;Mode=Share Deny None;Jet O' +
+      'LEDB:System database="";Jet OLEDB:Registry Path="";Jet OLEDB:Dat' +
+      'abase Password="";Jet OLEDB:Engine Type=6;Jet OLEDB:Database Loc' +
+      'king Mode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLEDB:Global' +
+      ' Bulk Transactions=1;Jet OLEDB:New Database Password="";Jet OLED' +
+      'B:Create System Database=False;Jet OLEDB:Encrypt Database=False;' +
+      'Jet OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:Compact W' +
+      'ithout Replica Repair=False;Jet OLEDB:SFP=False;Jet OLEDB:Suppor' +
+      't Complex Data=False;Jet OLEDB:Bypass UserInfo Validation=False;'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.ACE.OLEDB.12.0'
-    Left = 712
-    Top = 707
+    Left = 416
+    Top = 211
   end
   object ADOQuery1: TADOQuery
     Active = True
@@ -269,7 +268,7 @@ object VioOpenLettersRpt: TVioOpenLettersRpt
       '  openDate  ,'
       '  violationNumber'
       ' FROM ViolationStatusReport')
-    Left = 710
-    Top = 771
+    Left = 406
+    Top = 275
   end
 end

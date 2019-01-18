@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RLReport, Data.DB, Data.Win.ADODB;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RLReport, Data.DB, Data.Win.ADODB,
+  RLPreviewForm;
 
 type
   TVioUpdateReport = class(TForm)
@@ -23,16 +24,8 @@ type
     headerBandGroupAddress: TRLBand;
     RLDBText4: TRLDBText;
     RLDBText5: TRLDBText;
-    RLDBText7: TRLDBText;
-    RLDBText8: TRLDBText;
-    RLDBText9: TRLDBText;
-    RLDBText10: TRLDBText;
     RLDraw1: TRLDraw;
     RLLabel6: TRLLabel;
-    RLLabel7: TRLLabel;
-    RLLabel8: TRLLabel;
-    RLLabel9: TRLLabel;
-    RLLabel10: TRLLabel;
     RLDBMemo5: TRLDBMemo;
     groupViolationNumber: TRLGroup;
     DataSource1: TDataSource;
@@ -91,6 +84,7 @@ type
     RLLabel3: TRLLabel;
     RLLabel4: TRLLabel;
     RLDraw3: TRLDraw;
+    RLDBText6: TRLDBText;
   private
     { Private declarations }
   public
@@ -98,11 +92,14 @@ type
   end;
 
 var
-//  VioUpdateReport: TVioUpdateReport;
-  myInt: Integer;
+  Form69: TVioUpdateReport;
 
 implementation
 
 {$R *.dfm}
+
+{ TVioUpdateReport }
+
+
 
 end.

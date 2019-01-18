@@ -14,8 +14,8 @@ object VioUpdateReport: TVioUpdateReport
   PixelsPerInch = 96
   TextHeight = 13
   object RLReport1: TRLReport
-    Left = 8
-    Top = 8
+    Left = 24
+    Top = 11
     Width = 1056
     Height = 816
     DataSource = DataSource1
@@ -174,7 +174,7 @@ object VioUpdateReport: TVioUpdateReport
             Left = 0
             Top = 0
             Width = 980
-            Height = 43
+            Height = 24
             AutoExpand = False
             AutoSize = True
             BandType = btHeader
@@ -212,70 +212,6 @@ object VioUpdateReport: TVioUpdateReport
               Text = ''
               Transparent = False
             end
-            object RLDBText7: TRLDBText
-              Left = 119
-              Top = 29
-              Width = 33
-              Height = 14
-              DataField = 'Phone'
-              DataSource = DataSource1
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Text = ''
-              Transparent = False
-            end
-            object RLDBText8: TRLDBText
-              Left = 314
-              Top = 29
-              Width = 46
-              Height = 14
-              DataField = 'AltPhone'
-              DataSource = DataSource1
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Text = ''
-              Transparent = False
-            end
-            object RLDBText9: TRLDBText
-              Left = 482
-              Top = 29
-              Width = 69
-              Height = 14
-              DataField = 'mobilePhone1'
-              DataSource = DataSource1
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Text = ''
-              Transparent = False
-            end
-            object RLDBText10: TRLDBText
-              Left = 754
-              Top = 29
-              Width = 69
-              Height = 14
-              DataField = 'mobilePhone2'
-              DataSource = DataSource1
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Text = ''
-              Transparent = False
-            end
             object RLDraw1: TRLDraw
               Left = 25
               Top = 0
@@ -289,72 +225,12 @@ object VioUpdateReport: TVioUpdateReport
               Transparent = False
             end
             object RLLabel6: TRLLabel
-              Left = 848
+              Left = 851
               Top = 8
-              Width = 47
+              Width = 44
               Height = 14
               Alignment = taRightJustify
-              Caption = 'Account:'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Transparent = False
-            end
-            object RLLabel7: TRLLabel
-              Left = 70
-              Top = 29
-              Width = 51
-              Height = 14
-              Alignment = taRightJustify
-              Caption = 'Phone #1:'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Transparent = False
-            end
-            object RLLabel8: TRLLabel
-              Left = 264
-              Top = 29
-              Width = 51
-              Height = 14
-              Alignment = taRightJustify
-              Caption = 'Phone #2:'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Transparent = False
-            end
-            object RLLabel9: TRLLabel
-              Left = 439
-              Top = 29
-              Width = 51
-              Height = 14
-              Alignment = taRightJustify
-              Caption = 'Mobile #1:'
-              Font.Charset = DEFAULT_CHARSET
-              Font.Color = clBlack
-              Font.Height = -11
-              Font.Name = 'Arial'
-              Font.Style = []
-              ParentFont = False
-              Transparent = False
-            end
-            object RLLabel10: TRLLabel
-              Left = 704
-              Top = 29
-              Width = 51
-              Height = 14
-              Alignment = taRightJustify
-              Caption = 'Mobile #2:'
+              Caption = 'ACDR #:'
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlack
               Font.Height = -11
@@ -379,10 +255,25 @@ object VioUpdateReport: TVioUpdateReport
               Font.Style = [fsBold]
               ParentFont = False
             end
+            object RLDBText6: TRLDBText
+              Left = 893
+              Top = 8
+              Width = 84
+              Height = 14
+              DataField = 'longAccAccount'
+              DataSource = DataSource1
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Height = -11
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              Text = ''
+            end
           end
           object groupViolationNumber: TRLGroup
             Left = 0
-            Top = 43
+            Top = 24
             Width = 980
             Height = 123
             AllowedBands = [btHeader, btDetail, btFooter]
@@ -704,16 +595,17 @@ object VioUpdateReport: TVioUpdateReport
   end
   object DataSource1: TDataSource
     DataSet = ADOQuery1
-    Left = 808
-    Top = 771
+    Enabled = False
+    Left = 672
+    Top = 483
   end
   object ADOTable1: TADOTable
-    Active = True
+    AutoCalcFields = False
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'ViolationStatusReport'
-    Left = 800
-    Top = 699
+    Left = 672
+    Top = 427
     object ADOTable1violationIdText: TWideMemoField
       FieldName = 'violationIdText'
       ReadOnly = True
@@ -824,33 +716,34 @@ object VioUpdateReport: TVioUpdateReport
     Connected = True
     ConnectionString = 
       'Provider=Microsoft.ACE.OLEDB.12.0;User ID=Admin;Data Source=C:\U' +
-      'sers\Mandy.SSCA-FRONTOFFIC\Documents\SSCA_ACDR_Rev181221.accdb;M' +
-      'ode=Share Deny None;Jet OLEDB:System database="";Jet OLEDB:Regis' +
-      'try Path="";Jet OLEDB:Database Password="";Jet OLEDB:Engine Type' +
-      '=6;Jet OLEDB:Database Locking Mode=1;Jet OLEDB:Global Partial Bu' +
-      'lk Ops=2;Jet OLEDB:Global Bulk Transactions=1;Jet OLEDB:New Data' +
-      'base Password="";Jet OLEDB:Create System Database=False;Jet OLED' +
-      'B:Encrypt Database=False;Jet OLEDB:Don'#39't Copy Locale on Compact=' +
-      'False;Jet OLEDB:Compact Without Replica Repair=False;Jet OLEDB:S' +
-      'FP=False;Jet OLEDB:Support Complex Data=False;Jet OLEDB:Bypass U' +
-      'serInfo Validation=False;'
+      'sers\Admin\Documents\accSandbox.accdb;Mode=Share Deny None;Jet O' +
+      'LEDB:System database="";Jet OLEDB:Registry Path="";Jet OLEDB:Dat' +
+      'abase Password="";Jet OLEDB:Engine Type=6;Jet OLEDB:Database Loc' +
+      'king Mode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLEDB:Global' +
+      ' Bulk Transactions=1;Jet OLEDB:New Database Password="";Jet OLED' +
+      'B:Create System Database=False;Jet OLEDB:Encrypt Database=False;' +
+      'Jet OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:Compact W' +
+      'ithout Replica Repair=False;Jet OLEDB:SFP=False;Jet OLEDB:Suppor' +
+      't Complex Data=False;Jet OLEDB:Bypass UserInfo Validation=False;'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.ACE.OLEDB.12.0'
-    Left = 704
-    Top = 675
+    Left = 584
+    Top = 435
   end
   object ADOQuery1: TADOQuery
     Active = True
     AutoCalcFields = False
     Connection = ADOConnection1
     CursorType = ctStatic
+    ParamCheck = False
     Parameters = <>
     SQL.Strings = (
-      'SELECT *,( FORMAT(houseAcct, "000000")) as longHouseAcct'
-      ' FROM ViolationStatusReport'
-      'WHERE driveRoute < 7')
-    Left = 710
-    Top = 771
+      'SELECT * FROM ViolationStatusReport '
+      
+        'ORDER BY driveRoute, streetOrder, streetNumber, violationNumber,' +
+        ' statusDate ASC')
+    Left = 590
+    Top = 483
   end
 end

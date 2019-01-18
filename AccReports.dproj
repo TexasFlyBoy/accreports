@@ -102,7 +102,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="VioUpdateReport.pas">
-            <Form>VioUpdateReport</Form>
+            <Form>Form69</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="VioOpenLettersRpt.pas">
