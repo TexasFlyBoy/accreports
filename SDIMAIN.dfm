@@ -91,6 +91,8 @@ object SDIAppForm: TSDIAppForm
     TabPosition = tpBottom
     object TabSheet1: TTabSheet
       Caption = 'TabSheet1'
+      ExplicitLeft = 7
+      ExplicitTop = 6
       object memoSqlText: TMemo
         Left = 3
         Top = 75
@@ -135,8 +137,6 @@ object SDIAppForm: TSDIAppForm
     object TabSheet2: TTabSheet
       Caption = 'TabSheet2'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 6
       object pnlDriveReports: TPanel
         Left = 0
         Top = 0
@@ -146,7 +146,6 @@ object SDIAppForm: TSDIAppForm
         Color = 6205183
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 2
         object mDriveReports: TMemo
           Left = 540
           Top = 296
@@ -189,6 +188,8 @@ object SDIAppForm: TSDIAppForm
             Height = 17
             Alignment = taLeftJustify
             Caption = 'All:'
+            Checked = True
+            State = cbChecked
             TabOrder = 0
             OnClick = cbAllRoutesClick
           end
@@ -198,7 +199,6 @@ object SDIAppForm: TSDIAppForm
             Width = 135
             Height = 24
             TabOrder = 1
-            Text = '1, 2'
             OnClick = eSelectRoutesClick
           end
         end
@@ -241,16 +241,17 @@ object SDIAppForm: TSDIAppForm
             Height = 17
             Alignment = taLeftJustify
             Caption = 'All:'
+            Checked = True
+            State = cbChecked
             TabOrder = 0
             OnClick = cbAllAcdrNumbersClick
           end
           object eSelectAcdrNumbers: TEdit
-            Left = 106
+            Left = 109
             Top = 44
             Width = 319
             Height = 24
             TabOrder = 1
-            Text = '120, 2500'
             OnClick = eSelectAcdrNumbersClick
           end
         end
@@ -262,7 +263,7 @@ object SDIAppForm: TSDIAppForm
           Caption = ' Drive Reports '
           Color = 13034239
           Columns = 2
-          ItemIndex = 1
+          ItemIndex = 0
           Items.Strings = (
             'Status Report'
             'Status Report Update')
@@ -394,7 +395,7 @@ object SDIAppForm: TSDIAppForm
     Left = 336
     Top = 40
     Bitmap = {
-      494C01010F001300240010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010F0013002C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -939,25 +940,10 @@ object SDIAppForm: TSDIAppForm
     Left = 400
     Top = 40
   end
-  object RLRichFilter1: TRLRichFilter
-    FileName = 'C:\Users\Mandy.SSCA-FRONTOFFIC\Desktop\NewVioReport.rtf'
-    DisplayName = 'RichText Format'
-    Left = 638
-    Top = 44
-  end
   object RLPreviewSetup1: TRLPreviewSetup
-    Caption = 'preview setup'
-    EnabledButtons = [pbPrint, pbSave, pbSend, pbCustom]
-    Left = 558
-    Top = 44
-  end
-  object RLPDFFilter1: TRLPDFFilter
-    DocumentInfo.Creator = 
-      'FortesReport Community Edition v4.0 \251 Copyright '#169' 1999-2016 F' +
-      'ortes Inform'#225'tica'
-    FileName = 'C:\Users\Mandy.SSCA-FRONTOFFIC\Desktop\NewVioReport.pdf'
-    DisplayName = 'PDF Document'
-    Left = 880
-    Top = 184
+    ShowModal = True
+    Caption = 'qaz xsw'
+    Left = 740
+    Top = 98
   end
 end

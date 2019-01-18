@@ -46,9 +46,6 @@ type
     PasteItem: TMenuItem;
     Help1: TMenuItem;
     HelpAboutItem: TMenuItem;
-    RLRichFilter1: TRLRichFilter;
-    RLPreviewSetup1: TRLPreviewSetup;
-    RLPDFFilter1: TRLPDFFilter;
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
@@ -69,6 +66,7 @@ type
     cbAllAcdrNumbers: TCheckBox;
     eSelectAcdrNumbers: TEdit;
     rgReportType: TRadioGroup;
+    RLPreviewSetup1: TRLPreviewSetup;
     procedure FileNew1Execute(Sender: TObject);
     procedure FileOpen1Execute(Sender: TObject);
     procedure FileSave1Execute(Sender: TObject);
@@ -92,7 +90,7 @@ var
 
 implementation
 
-uses About, VioStatusReport;
+uses About, VioUpdateReport, VioStatusReport;
 
 {$R *.dfm}
 
@@ -113,13 +111,15 @@ end;
 
 procedure TSDIAppForm.btnLoadVioSqlClick(Sender: TObject);
 begin
-  with memoSqlText.Lines do begin
+  with memoSqlText.Lines do
+  begin
     Clear;
     Append('SELECT * FROM ViolationStatusReport');
     Append('WHERE houseacct in (120, 240, 999998, 999999)');
     Append('OR driveRoute = 2.5');
   end;
-if (RLPreviewSetup1.ShowModal) then ShowMessage('yeah baby');
+  if (RLPreviewSetup1.ShowModal) then
+    ShowMessage('yeah baby');
   VioStatusReport.Form1.RLReport1.Preview();
 end;
 
@@ -133,13 +133,18 @@ begin
   memoSqlText.Lines.Clear;
   reportIndex := rgSqlQueries.ItemIndex;
   case reportIndex of
-    0: memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport');
-    1: memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport_Legal');
-    2: memoSqlText.Lines.Append('SELECT * FROM Open_209_Letters_Detail');
-    3: memoSqlText.Lines.Append('SELECT * FROM Open_4OL_Letters_Detail');
-    4: memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport_3OL');
+    0:
+      memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport');
+    1:
+      memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport_Legal');
+    2:
+      memoSqlText.Lines.Append('SELECT * FROM Open_209_Letters_Detail');
+    3:
+      memoSqlText.Lines.Append('SELECT * FROM Open_4OL_Letters_Detail');
+    4:
+      memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport_3OL');
   end;
-  for I := 0 to memoSqlText.Lines.Count - 1 do
+  for i := 0 to memoSqlText.Lines.Count - 1 do
   begin
     queryText := memoSqlText.Lines[i];
     VioStatusReport.Form1.ADOQuery1.SQL.Append(queryText);
@@ -152,15 +157,58 @@ procedure TSDIAppForm.Button1Click(Sender: TObject);
 var
   sqlText: TStrings;
 begin
-  sqlText.Create;
-  sqlText.Add('SELECT * FROM DriveReports ');
-//  if (cbAllRoutes) then
-
+  sqlText := TStringList.Create;
+  sqlText.Add('SELECT * FROM ViolationStatusReport ');
+  if (cbAllRoutes.Checked AND cbAllAcdrNumbers.Checked) then
+  begin
+    // do something here
+  end
+  else if (cbAllRoutes.Checked and (Length(eSelectAcdrNumbers.Text) > 0)) then
+  begin
+    sqlText.Append('WHERE accAccount in (' + eSelectAcdrNumbers.Text + ')');
+  end
+  else if (cbAllAcdrNumbers.Checked and (Length(eSelectRoutes.Text) > 0)) then
+  begin
+    sqlText.Append('WHERE driveRoute IN (' + eSelectRoutes.Text + ')');
+  end
+  else
+  begin
+    sqlText.Append('WHERE driveRoute IN (' + eSelectRoutes.Text + ')');
+    if (rgAndOr.ItemIndex = 0) then
+      sqlText.Append('AND')
+    else
+      sqlText.Append('OR');
+    sqlText.Append('accAccount in (' + eSelectAcdrNumbers.Text + ')');
+  end;
+  sqlText.Append
+    ('ORDER BY driveRoute, streetOrder, streetNumber, violationNumber, statusDate ASC');
   mDriveReports.Lines.Clear;
-  mDriveReports.Lines.AddStrings(sqlText.Strings);
+  mDriveReports.Lines.AddStrings(sqlText);
+  if (rgReportType.ItemIndex = 0) then
+  begin
+    with VioStatusReport.Form1.ADOQuery1 do
+    begin
+      Active := False;
+      SQL.Clear;
+      SQL.AddStrings(sqlText);
+      Active := True;
+    end;
+    VioStatusReport.Form1.RLReport1.Preview();
+  end
+  else
+  begin
+    with VioUpdateReport.form69.ADOQuery1 do
+    begin
+      Active := False;
+      SQL.Clear;
+      SQL.AddStrings(sqlText);
+      Active := True;
+    end;
+    VioUpdateReport.form69.RLReport1.Preview();
+  end;
+
+  sqlText.Free;
 end;
-
-
 
 procedure TSDIAppForm.cbAllAcdrNumbersClick(Sender: TObject);
 begin
