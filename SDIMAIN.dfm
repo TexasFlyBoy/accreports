@@ -85,14 +85,12 @@ object SDIAppForm: TSDIAppForm
     Top = 30
     Width = 1084
     Height = 542
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 2
     TabPosition = tpBottom
     object TabSheet1: TTabSheet
       Caption = 'TabSheet1'
-      ExplicitLeft = 7
-      ExplicitTop = 6
       object memoSqlText: TMemo
         Left = 3
         Top = 75
@@ -102,13 +100,12 @@ object SDIAppForm: TSDIAppForm
       end
       object rgSqlQueries: TRadioGroup
         Left = 632
-        Top = 147
+        Top = 131
         Width = 161
-        Height = 182
+        Height = 134
         Caption = ' SQL Queries '
         ItemIndex = 0
         Items.Strings = (
-          'Violation Report'
           'Houses in Legal'
           'Houses on 209'
           'Houses on 4OL'
@@ -132,6 +129,19 @@ object SDIAppForm: TSDIAppForm
         Caption = 'Run SQL Query'
         TabOrder = 3
         OnClick = btnRunSqlQueryClick
+      end
+      object DBGrid1: TDBGrid
+        Left = 520
+        Top = 350
+        Width = 505
+        Height = 160
+        DataSource = DataSource1
+        TabOrder = 4
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -13
+        TitleFont.Name = 'System'
+        TitleFont.Style = []
       end
     end
     object TabSheet2: TTabSheet
@@ -395,7 +405,7 @@ object SDIAppForm: TSDIAppForm
     Left = 336
     Top = 40
     Bitmap = {
-      494C01010F0013002C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010F001300380010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -943,7 +953,44 @@ object SDIAppForm: TSDIAppForm
   object RLPreviewSetup1: TRLPreviewSetup
     ShowModal = True
     Caption = 'qaz xsw'
-    Left = 740
-    Top = 98
+    Left = 716
+    Top = 58
+  end
+  object ADOQuery1: TADOQuery
+    Parameters = <>
+    Left = 1004
+    Top = 50
+  end
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=Microsoft.ACE.OLEDB.12.0;User ID=Admin;Data Source=C:\U' +
+      'sers\Mandy.SSCA-FRONTOFFIC\Documents\SSCA_ACDR_Rev181221.accdb;M' +
+      'ode=Share Deny None;Jet OLEDB:System database="";Jet OLEDB:Regis' +
+      'try Path="";Jet OLEDB:Database Password="";Jet OLEDB:Engine Type' +
+      '=6;Jet OLEDB:Database Locking Mode=1;Jet OLEDB:Global Partial Bu' +
+      'lk Ops=2;Jet OLEDB:Global Bulk Transactions=1;Jet OLEDB:New Data' +
+      'base Password="";Jet OLEDB:Create System Database=False;Jet OLED' +
+      'B:Encrypt Database=False;Jet OLEDB:Don'#39't Copy Locale on Compact=' +
+      'False;Jet OLEDB:Compact Without Replica Repair=False;Jet OLEDB:S' +
+      'FP=False;Jet OLEDB:Support Complex Data=False;Jet OLEDB:Bypass U' +
+      'serInfo Validation=False;'
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.ACE.OLEDB.12.0'
+    Left = 964
+    Top = 114
+  end
+  object ADOTable1: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'Just_209_Vio'
+    Left = 1020
+    Top = 114
+  end
+  object DataSource1: TDataSource
+    DataSet = ADOTable1
+    Left = 964
+    Top = 66
   end
 end

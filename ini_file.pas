@@ -3,7 +3,7 @@ unit ini_file;
 interface
 
 uses SysUtils, Windows, Messages, Classes, Graphics, Controls, Inifiles,
-      Main,Vcl.Forms, Dialogs;
+      sdiMain, Vcl.Forms, Dialogs;
 
 procedure CreateIniFile;
 function IniFileExists: Boolean;

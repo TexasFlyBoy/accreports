@@ -6,7 +6,8 @@ uses Winapi.Windows, System.Classes, Vcl.Graphics, Vcl.Forms, Vcl.Controls,
   Vcl.Menus, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, Vcl.ComCtrls,
   Vcl.ImgList, Vcl.StdActns, Vcl.ActnList, Vcl.ToolWin, RLReport,
   System.ImageList, System.Actions, Data.DB, Data.Win.ADODB, RLFilters,
-  RLRichFilter, RLPreview, RLPreviewForm, RLPDFFilter;
+  RLRichFilter, RLPreview, RLPreviewForm, RLPDFFilter, Vcl.Grids, Vcl.DBGrids,
+  SysUtils;
 
 type
   TSDIAppForm = class(TForm)
@@ -67,6 +68,11 @@ type
     eSelectAcdrNumbers: TEdit;
     rgReportType: TRadioGroup;
     RLPreviewSetup1: TRLPreviewSetup;
+    ADOQuery1: TADOQuery;
+    ADOConnection1: TADOConnection;
+    ADOTable1: TADOTable;
+    DataSource1: TDataSource;
+    DBGrid1: TDBGrid;
     procedure FileNew1Execute(Sender: TObject);
     procedure FileOpen1Execute(Sender: TObject);
     procedure FileSave1Execute(Sender: TObject);
@@ -90,7 +96,7 @@ var
 
 implementation
 
-uses About, VioUpdateReport, VioStatusReport;
+uses About, VioUpdateReport, VioStatusReport, Ini_File;
 
 {$R *.dfm}
 
@@ -132,17 +138,21 @@ begin
   VioStatusReport.Form1.ADOQuery1.SQL.Clear;
   memoSqlText.Lines.Clear;
   reportIndex := rgSqlQueries.ItemIndex;
+  ADOTable1.Active := False;
   case reportIndex of
     0:
-      memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport');
+      ADOTable1.TableName := 'ViolationStatusReport';
+      ADOTable1.Active := True;
+      memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport ');
+      ADOTable1.First;
+      memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport ');
+      memoSqlText.Lines.Append('WHERE (legal NOT NULL) OR (LEN(legal) > 0) ');
     1:
-      memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport_Legal');
+      memoSqlText.Lines.Append('SELECT * FROM Open_209_Letters_Detail ');
     2:
-      memoSqlText.Lines.Append('SELECT * FROM Open_209_Letters_Detail');
+      memoSqlText.Lines.Append('SELECT * FROM Open_4OL_Letters_Detail ');
     3:
-      memoSqlText.Lines.Append('SELECT * FROM Open_4OL_Letters_Detail');
-    4:
-      memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport_3OL');
+      memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport_3OL ');
   end;
   for i := 0 to memoSqlText.Lines.Count - 1 do
   begin
@@ -151,6 +161,25 @@ begin
   end;
   VioStatusReport.Form1.ADOQuery1.Active := True;
   VioStatusReport.Form1.RLReport1.Preview();
+
+  memoSqlText.Lines.Clear;
+  with ADOTable1 do begin
+    Active := False;
+    TableName := 'Just_209_Vio';
+    Active := True;
+    First;
+    memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport ');
+    memoSqlText.Lines.Append('WHERE houseAcct IN (');
+    memoSqlText.Lines.Append(FieldByName('houseAcct').AsString);
+    for i := 1 to ADOTable1.RecordCount - 1 do
+    begin
+      Next;
+      memoSqlText.Lines.Append(', ' + FieldByName('houseAcct').AsString);
+    end;
+    memoSqlText.Lines.Append('ORDER BY driveRoute, streetOrder, streetNumber, openDate, statusDate;');
+  end;
+
+
 end;
 
 procedure TSDIAppForm.Button1Click(Sender: TObject);
@@ -197,14 +226,14 @@ begin
   end
   else
   begin
-    with VioUpdateReport.form69.ADOQuery1 do
+    with VioUpdateReport.dsVioUpdateReport.ADOQuery1 do
     begin
       Active := False;
       SQL.Clear;
       SQL.AddStrings(sqlText);
       Active := True;
     end;
-    VioUpdateReport.form69.RLReport1.Preview();
+    VioUpdateReport.dsVioUpdateReport.RLReport1.Preview();
   end;
 
   sqlText.Free;

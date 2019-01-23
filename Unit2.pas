@@ -48,8 +48,9 @@ var
 
 implementation
 
-uses
+{uses
   VioUpdateReport;
+}
 
 {$R *.dfm}
 

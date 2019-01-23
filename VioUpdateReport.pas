@@ -92,7 +92,7 @@ type
   end;
 
 var
-  Form69: TVioUpdateReport;
+  dsVioUpdateReport: TVioUpdateReport;
 
 implementation
 
