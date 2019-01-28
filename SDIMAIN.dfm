@@ -91,6 +91,8 @@ object SDIAppForm: TSDIAppForm
     TabPosition = tpBottom
     object TabSheet1: TTabSheet
       Caption = 'TabSheet1'
+      ExplicitLeft = 8
+      ExplicitTop = 6
       object memoSqlText: TMemo
         Left = 3
         Top = 75
@@ -405,7 +407,7 @@ object SDIAppForm: TSDIAppForm
     Left = 336
     Top = 40
     Bitmap = {
-      494C01010F001300380010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010F0013003C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -957,7 +959,34 @@ object SDIAppForm: TSDIAppForm
     Top = 58
   end
   object ADOQuery1: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
     Parameters = <>
+    SQL.Strings = (
+      'SELECT * FROM ViolationStatusReport '
+      'WHERE houseAcct IN ('
+      '3220'
+      ', 7960'
+      ', 9690'
+      ', 3740'
+      ', 14980'
+      ', 16024'
+      ', 17060'
+      ', 10040'
+      ', 4620'
+      ', 5320'
+      ', 1250'
+      ', 16240'
+      ', 13070'
+      ', 11330'
+      ', 15882'
+      ', 10980'
+      ', 7830'
+      ')'
+      
+        'ORDER BY driveRoute, streetOrder, streetNumber, openDate, status' +
+        'Date;')
     Left = 1004
     Top = 50
   end
@@ -965,16 +994,16 @@ object SDIAppForm: TSDIAppForm
     Connected = True
     ConnectionString = 
       'Provider=Microsoft.ACE.OLEDB.12.0;User ID=Admin;Data Source=C:\U' +
-      'sers\Mandy.SSCA-FRONTOFFIC\Documents\SSCA_ACDR_Rev181221.accdb;M' +
-      'ode=Share Deny None;Jet OLEDB:System database="";Jet OLEDB:Regis' +
-      'try Path="";Jet OLEDB:Database Password="";Jet OLEDB:Engine Type' +
-      '=6;Jet OLEDB:Database Locking Mode=1;Jet OLEDB:Global Partial Bu' +
-      'lk Ops=2;Jet OLEDB:Global Bulk Transactions=1;Jet OLEDB:New Data' +
-      'base Password="";Jet OLEDB:Create System Database=False;Jet OLED' +
-      'B:Encrypt Database=False;Jet OLEDB:Don'#39't Copy Locale on Compact=' +
-      'False;Jet OLEDB:Compact Without Replica Repair=False;Jet OLEDB:S' +
-      'FP=False;Jet OLEDB:Support Complex Data=False;Jet OLEDB:Bypass U' +
-      'serInfo Validation=False;'
+      'sers\Admin\Desktop\SSCA_ACDR_Rev181221.accdb;Mode=Share Deny Non' +
+      'e;Jet OLEDB:System database="";Jet OLEDB:Registry Path="";Jet OL' +
+      'EDB:Database Password="";Jet OLEDB:Engine Type=6;Jet OLEDB:Datab' +
+      'ase Locking Mode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLEDB' +
+      ':Global Bulk Transactions=1;Jet OLEDB:New Database Password="";J' +
+      'et OLEDB:Create System Database=False;Jet OLEDB:Encrypt Database' +
+      '=False;Jet OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:Co' +
+      'mpact Without Replica Repair=False;Jet OLEDB:SFP=False;Jet OLEDB' +
+      ':Support Complex Data=False;Jet OLEDB:Bypass UserInfo Validation' +
+      '=False;'
     Mode = cmShareDenyNone
     Provider = 'Microsoft.ACE.OLEDB.12.0'
     Left = 964

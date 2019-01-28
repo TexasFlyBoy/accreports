@@ -1,5 +1,5 @@
 unit SDIMAIN;
-
+
 interface
 
 uses Winapi.Windows, System.Classes, Vcl.Graphics, Vcl.Forms, Vcl.Controls,
@@ -138,22 +138,82 @@ begin
   VioStatusReport.Form1.ADOQuery1.SQL.Clear;
   memoSqlText.Lines.Clear;
   reportIndex := rgSqlQueries.ItemIndex;
-  ADOTable1.Active := False;
+
   case reportIndex of
     0:
-      ADOTable1.TableName := 'ViolationStatusReport';
-      ADOTable1.Active := True;
-      memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport ');
-      ADOTable1.First;
-      memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport ');
-      memoSqlText.Lines.Append('WHERE (legal NOT NULL) OR (LEN(legal) > 0) ');
+      begin
+        ADOTable1.Active := False;
+        ADOTable1.TableName := 'ViolationStatusReport';
+        memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport ');
+        memoSqlText.Lines.Append('WHERE legal IS NOT NULL ');
+        memoSqlText.Lines.Append
+          ('ORDER BY driveRoute, streetOrder, streetNumber, openDate, statusDate;');
+      end;
     1:
-      memoSqlText.Lines.Append('SELECT * FROM Open_209_Letters_Detail ');
+      begin
+        with ADOTable1 do
+        begin
+          Active := False;
+          TableName := 'Just_209_Vio';
+          Active := True;
+          First;
+          memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport ');
+          memoSqlText.Lines.Append('WHERE houseAcct IN (');
+          memoSqlText.Lines.Append(FieldByName('houseAcct').AsString);
+          for i := 1 to ADOTable1.RecordCount - 1 do
+          begin
+            Next;
+            memoSqlText.Lines.Append(', ' + FieldByName('houseAcct').AsString);
+          end;
+          memoSqlText.Lines.Append(')');
+          memoSqlText.Lines.Append
+            ('ORDER BY driveRoute, streetOrder, streetNumber, openDate, statusDate;');
+        end;
+      end;
     2:
-      memoSqlText.Lines.Append('SELECT * FROM Open_4OL_Letters_Detail ');
+      begin
+        with ADOTable1 do
+        begin
+          Active := False;
+          TableName := 'Just_4OL_Vio';
+          Active := True;
+          First;
+          memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport ');
+          memoSqlText.Lines.Append('WHERE houseAcct IN (');
+          memoSqlText.Lines.Append(FieldByName('houseAcct').AsString);
+          for i := 1 to ADOTable1.RecordCount - 1 do
+          begin
+            Next;
+            memoSqlText.Lines.Append(', ' + FieldByName('houseAcct').AsString);
+          end;
+          memoSqlText.Lines.Append(')');
+          memoSqlText.Lines.Append
+            ('ORDER BY driveRoute, streetOrder, streetNumber, openDate, statusDate;');
+        end;
+      end;
     3:
-      memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport_3OL ');
+      begin
+        with ADOTable1 do
+        begin
+          Active := False;
+          TableName := 'Just_3OL_Vio';
+          Active := True;
+          First;
+          memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport ');
+          memoSqlText.Lines.Append('WHERE houseAcct IN (');
+          memoSqlText.Lines.Append(FieldByName('houseAcct').AsString);
+          for i := 1 to ADOTable1.RecordCount - 1 do
+          begin
+            Next;
+            memoSqlText.Lines.Append(', ' + FieldByName('houseAcct').AsString);
+          end;
+          memoSqlText.Lines.Append(')');
+          memoSqlText.Lines.Append
+            ('ORDER BY driveRoute, streetOrder, streetNumber, openDate, statusDate;');
+        end;
+      end;
   end;
+
   for i := 0 to memoSqlText.Lines.Count - 1 do
   begin
     queryText := memoSqlText.Lines[i];
@@ -163,22 +223,6 @@ begin
   VioStatusReport.Form1.RLReport1.Preview();
 
   memoSqlText.Lines.Clear;
-  with ADOTable1 do begin
-    Active := False;
-    TableName := 'Just_209_Vio';
-    Active := True;
-    First;
-    memoSqlText.Lines.Append('SELECT * FROM ViolationStatusReport ');
-    memoSqlText.Lines.Append('WHERE houseAcct IN (');
-    memoSqlText.Lines.Append(FieldByName('houseAcct').AsString);
-    for i := 1 to ADOTable1.RecordCount - 1 do
-    begin
-      Next;
-      memoSqlText.Lines.Append(', ' + FieldByName('houseAcct').AsString);
-    end;
-    memoSqlText.Lines.Append('ORDER BY driveRoute, streetOrder, streetNumber, openDate, statusDate;');
-  end;
-
 
 end;
 
@@ -270,3 +314,4 @@ begin
 end;
 
 end.
+

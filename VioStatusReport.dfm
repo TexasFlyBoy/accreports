@@ -570,7 +570,6 @@ object Form1: TForm1
     Top = 472
   end
   object ADOTable1: TADOTable
-    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'ViolationStatusReport'
@@ -686,16 +685,16 @@ object Form1: TForm1
     Connected = True
     ConnectionString = 
       'Provider=Microsoft.ACE.OLEDB.12.0;User ID=Admin;Data Source=C:\U' +
-      'sers\Mandy.SSCA-FRONTOFFIC\Documents\SSCA_ACDR_Rev181221.accdb;M' +
-      'ode=Share Deny None;Jet OLEDB:System database="";Jet OLEDB:Regis' +
-      'try Path="";Jet OLEDB:Database Password="";Jet OLEDB:Engine Type' +
-      '=6;Jet OLEDB:Database Locking Mode=1;Jet OLEDB:Global Partial Bu' +
-      'lk Ops=2;Jet OLEDB:Global Bulk Transactions=1;Jet OLEDB:New Data' +
-      'base Password="";Jet OLEDB:Create System Database=False;Jet OLED' +
-      'B:Encrypt Database=False;Jet OLEDB:Don'#39't Copy Locale on Compact=' +
-      'False;Jet OLEDB:Compact Without Replica Repair=False;Jet OLEDB:S' +
-      'FP=False;Jet OLEDB:Support Complex Data=False;Jet OLEDB:Bypass U' +
-      'serInfo Validation=False;'
+      'sers\admin\desktop\SSCA_ACDR_Rev181221.accdb;Mode=Share Deny Non' +
+      'e;Jet OLEDB:System database="";Jet OLEDB:Registry Path="";Jet OL' +
+      'EDB:Database Password="";Jet OLEDB:Engine Type=6;Jet OLEDB:Datab' +
+      'ase Locking Mode=1;Jet OLEDB:Global Partial Bulk Ops=2;Jet OLEDB' +
+      ':Global Bulk Transactions=1;Jet OLEDB:New Database Password="";J' +
+      'et OLEDB:Create System Database=False;Jet OLEDB:Encrypt Database' +
+      '=False;Jet OLEDB:Don'#39't Copy Locale on Compact=False;Jet OLEDB:Co' +
+      'mpact Without Replica Repair=False;Jet OLEDB:SFP=False;Jet OLEDB' +
+      ':Support Complex Data=False;Jet OLEDB:Bypass UserInfo Validation' +
+      '=False;'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.ACE.OLEDB.12.0'
@@ -703,7 +702,6 @@ object Form1: TForm1
     Top = 408
   end
   object ADOQuery1: TADOQuery
-    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     Parameters = <>
